@@ -135,6 +135,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/ping")
+async def ping():
+    return {"status": "ok"}
 
 @app.post('/predict')
 async def predict(file:UploadFile = File(...)):
